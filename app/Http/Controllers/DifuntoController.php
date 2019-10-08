@@ -8,11 +8,9 @@ use App\Difunto;
 class DifuntoController extends Controller
 {
   public function __construct(){
-    /*
     $this->middleware('auth');
     if( \Auth::guest() )
       return redirect('index.php/login');
-      */
   }
 
   public function index(Request $request){
@@ -154,6 +152,26 @@ class DifuntoController extends Controller
     }else{
       return redirect('/Difunto');
     }
+  }
+
+  public function buscarGet(){
+    $datos = array();
+    return view('difunto.buscar', compact('datos'));
+  }
+
+  public function buscarPost(Request $request){
+    return $request->all();
+    $nombre  = $request->nombre != null   ? " nombre like('".strtoupper($request->nombre)."') " : " 1 = 1 ";
+    $paterno = $request->paterno!= null   ? " paterno like('".strtoupper($request->paterno)."') " : " 1 = 1 ";
+    $materno = $request->materno!= null   ? " materno like('".strtoupper($request->materno)."') " : " 1 = 1 ";
+    $fecha   = $request->fecha  != null   ? " fecha_fallecimiento ='". date('Y-m-d', strtotime($request->fecha)) ."' " : " 1 = 1 ";
+
+    $datos = \DB::table('difuntos')->whereRaw($nombre)
+                                   ->whereRaw($paterno)
+                                   ->whereRaw($materno)
+                                   ->whereRaw($fecha)
+                                   ->get();
+    return view('difunto.buscar', compact('datos'));
   }
 
 }

@@ -1,13 +1,20 @@
 <?php
 
-Route::get('/', function () {
-    return view('master');
+
+Route::get('/', function(){
+  if (Auth::guest()){
+    return redirect(asset('index.php/login'));
+  }else{
+    return view('welcome');
+  }
 });
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/Difunto', 'DifuntoController');
+
+Route::get('/Buscar', 'DifuntoController@buscarGet');
+Route::post('/Buscar', 'DifuntoController@buscarPost');
 
 Route::get('/Reporte', 'ReporteController@index');
 Route::post('/Reporte', 'ReporteController@reporte');

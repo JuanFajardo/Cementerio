@@ -8,6 +8,13 @@
     </li>
 
     @if( trim(\Auth::user()->grupo) == "Administrador" ||  trim(\Auth::user()->grupo) == "Encargado" )
+    <li class="nav-item @yield('buscar')">
+      <a class="nav-link" href="{{ asset('/index.php/Buscar') }}">
+        <i class="ti-search menu-icon"></i>
+        <span class="menu-title" accesskey="d"><u>B</u>uscar</span>
+      </a>
+    </li>
+
     <li class="nav-item @yield('difunto')">
       <a class="nav-link" href="{{ asset('/index.php/Difunto') }}">
         <i class="ti-heart-broken menu-icon"></i>

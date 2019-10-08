@@ -18,25 +18,29 @@ header('Content-Disposition: attachment; filename=Reporte_'.date('Y_m_d_h_i_s').
 <table width="100%" border="1">
   <thead>
     <tr>
-
-      <th> Nro</th>
-      <th> Usuario </th>
-      <th> IP</th>
-      <th> Fecha</th>
-      <th> Centro de Salud </th>
-      <th> Busqueda </th>
-
+      <th>Inicial</th>
+      <th>Sexo</th>
+      <th>Edad</th>
+      <th>Nombres</th>
+      <th>Paterno</th>
+      <th>Materno</th>
+      <th>Esposo</th>
+      <th>Fecha Defunsion</th>
+      <th>Fecha Ingreso</th>
     </tr>
   </thead>
   <tbody><?php $nr = 1;?>
     @foreach($datos as $dato)
       <tr>
-        <td> {{$nr}}</td>
-        <td> {{ $dato->usuario }}  </td>
-        <td> {{ $dato->ip }} </td>
-        <td> {{ date('d-m-Y H:i:s', strtotime($dato->created_at)) }}  </td>
-        <td> {{ $dato->dato }}  </td>
-        <td> {{ $dato->centrosalud }}      </td>
+        <td>{{ $dato->inicial_nombre }}</td>
+        <td>{{ $dato->sexo }}</td>
+        <td>{{ $dato->edad }}</td>
+        <td>{{ $dato->nombre }} </td>
+        <td>{{ $dato->paterno }} </td>
+        <td>{{ $dato->materno }} </td>
+        <td>{{ $dato->esposo }} </td>
+        <td>{{ $dato->fecha_fallecimiento }}</td>
+        <td>{{ $dato->fecha_registro }}</td>
       </tr><?php $nr = $nr + 1; ?>
     @endforeach
   </tbody>

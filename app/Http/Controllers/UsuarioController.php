@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 
-class UsuarioController extends Controller
-{
+class UsuarioController extends Controller{
 
   public function __construct(){
-    /*$this->middleware('auth');
+    $this->middleware('auth');
     if( \Auth::guest() )
-      return redirect('index.php/login');*/
+      return redirect('index.php/login');
   }
 
   public function index(){

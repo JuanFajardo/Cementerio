@@ -17,32 +17,36 @@
         <td colspan="2"> Reporte desde  el {{ date('d-m-Y', strtotime($inicio)) }} hasta el {{ date('d-m-Y', strtotime($fin)) }}</td>
       </tr>
       <tr>
-        <td colspan="2" style="font-size:10px;"> Fecha de generacion del reporte : <?php echo date('Y-m-d'); ?> </td>
+        <td colspan="2" style="font-size:10px;"> Fecha de generacion del reporte : <?php echo date('Y-m-d H:i:s'); ?> </td>
       </tr>
     </table>
 
     <table width="100%" border="1">
       <thead>
         <tr>
-
-          <th> Nro</th>
-          <th> IP</th>
-          <th> Usuario </th>
-          <th> Fecha</th>
-          <th> Busqueda </th>
-          <th> Centro de Salud </th>
-
+          <th>Inicial</th>
+          <th>Sexo</th>
+          <th>Edad</th>
+          <th>Nombres</th>
+          <th>Paterno</th>
+          <th>Materno</th>
+          <th>Esposo</th>
+          <th>Fecha Defunsion</th>
+          <th>Fecha Ingreso</th>
         </tr>
       </thead>
       <tbody><?php $nr = 1;?>
         @foreach($datos as $dato)
           <tr>
-            <td> {{$nr}}</td>
-            <td> {{ $dato->ip }} </td>
-            <td> {{ $dato->usuario }}  </td>
-            <td> {{ date('d/m/Y H:i:s', strtotime($dato->created_at)) }}  </td>
-            <td> {{ $dato->dato }}  </td>
-            <td> {{ $dato->centrosalud }}      </td>
+            <td>{{ $dato->inicial_nombre }}</td>
+            <td>{{ $dato->sexo }}</td>
+            <td>{{ $dato->edad }}</td>
+            <td>{{ $dato->nombre }} </td>
+            <td>{{ $dato->paterno }} </td>
+            <td>{{ $dato->materno }} </td>
+            <td>{{ $dato->esposo }} </td>
+            <td>{{ $dato->fecha_fallecimiento }}</td>
+            <td>{{ $dato->fecha_registro }}</td>
           </tr><?php $nr = $nr + 1; ?>
         @endforeach
       </tbody>
