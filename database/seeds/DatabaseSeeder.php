@@ -24,5 +24,10 @@ class DatabaseSeeder extends Seeder
 
         \DB::table('localidads')->insert(['id'=>'1', 'id_pais'=>'2', 'id_departamento'=>'1', 'id_provincia'=>'1', 'localidad'=>'POTOSI']);
         \DB::table('localidads')->insert(['id'=>'2', 'id_pais'=>'2', 'id_departamento'=>'1', 'id_provincia'=>'1', 'localidad'=>'OCORURO']);
+
+        \DB::table('users')->insert([ 'id'=>'1', 'name'=>'gamp', 'email'=>'Adminsitrador', 'password'=> \bcrypt('123'), 'grupo'=>'Administrador']);
+        \DB::table('users')->insert([ 'id'=>'2', 'name'=>'rocio', 'email'=>'bellaFlor', 'password'=> \bcrypt('123'), 'grupo'=>'Administrador']);
+
+
     }
 }
