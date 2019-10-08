@@ -5,7 +5,7 @@ Route::get('/', function(){
   if (Auth::guest()){
     return redirect(asset('index.php/login'));
   }else{
-    return view('welcome');
+    return view('master');
   }
 });
 
