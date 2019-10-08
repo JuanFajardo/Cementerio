@@ -13,41 +13,30 @@
 
 @section('cuerpo')
 {!! Form::open(['accept-charset'=>'UTF-8', 'enctype'=>'multipart/form-data', 'method'=>'POST', 'files'=>true, 'autocomplete'=>'off', 'id'=>'form-insert'] ) !!}
-
 <div class="row">
-  <div class="col-md-3">
-    <label for="inicio" > <b><i>Fecha Inicio</i></b> </label>
-    {!! Form::date('inicio', null, ['class'=>'form-control', 'placeholder'=>'Fecha Inicio', 'id'=>'inicio', 'required']) !!}
+  <div class="col-md-4">
+    <label for="inicio"> <b><i>Fecha Inicio</i></b> </label>
+    {!! Form::date('inicio', null, ['class'=>'form-control', 'placeholder'=>'Fecha Inicio', 'id'=>'inicio']) !!}
   </div>
-  <div class="col-md-3">
+  <div class="col-md-4">
     <label for="fin" > <b><i>Fecha Fin</i></b> </label>
-    {!! Form::date('fin', null, ['class'=>'form-control', 'placeholder'=>'Fecha Final', 'id'=>'fin', 'required']) !!}
+    {!! Form::date('fin', null, ['class'=>'form-control', 'placeholder'=>'Fecha Final', 'id'=>'fin']) !!}
   </div>
-  <div class="col-md-3">
-    <label for="salud" > <b><i>Centro de Salud</i></b> </label>
-    {!! Form::select('salud', [], null, ['class'=>'form-control', 'placeholder'=>'todo', 'id'=>'salud']) !!}
+  <div class="col-md-4">
+    <label for="fecha_fallecimiento"> <b><i>Fecha Fallecimiento</i></b> </label>
+    {!! Form::date('fecha_fallecimiento', null, ['class'=>'form-control', 'placeholder'=>'Fecha Fallecimiento', 'id'=>'fecha_fallecimiento']) !!}
   </div>
-  <div class="col-md-3">
-    <label for="usuario" > <b><i>Usuario</i></b> </label>
-    {!! Form::select('usuario', $usuarios, null, ['class'=>'form-control', 'placeholder'=>'todo', 'id'=>'usuario']) !!}
-  </div>
-
 </div>
 
 <div class="row" style="padding-top:20px;">
-  <div class="col-md-4" style="padding-top:10px;">
-    <button type="submit" name="btn" value="pdf" class="btn btn-danger btn-icon-text"> <i class="ti-agenda menu-icon"></i> Reporte Generado en PDF</button>
+  <div class="col-md-6" style="padding-top:10px;">
+    <button type="submit" name="btn"  value="xls" class="btn btn-success btn-icon-text" accesskey="e"> <i class="ti-receipt menu-icon"></i> Reporte Generado en <u>E</u>XCEL</button>
   </div>
-  <div class="col-md-4" style="padding-top:10px;">
-    <button type="submit" name="btn"  value="xls" class="btn btn-success btn-icon-text"> <i class="ti-receipt menu-icon"></i> Reporte Generado en EXCEL</button>
-  </div>
-  <div class="col-md-4" style="padding-top:10px;">
-    <button type="submit" name="btn"  value="doc" class="btn btn-primary btn-icon-text"> <i class=" ti-html5 menu-icon"></i> Reporte Generado en HTML</button>
+  <div class="col-md-6" style="padding-top:10px;">
+    <button type="submit" name="btn"  value="doc" class="btn btn-primary btn-icon-text" accesskey="h"> <i class=" ti-html5 menu-icon"></i> Reporte Generado en <u>H</u>TML</button>
   </div>
 </div>
 {!! Form::close() !!}
-
-
 @endsection
 
 @section('js')
